@@ -25,9 +25,8 @@ class AdminController extends Controller
         return view('admin.dashboard');
     }
     public function statics(){
-       
-            echo" Day la trang thong ke";
-                    
+        return view('admin.statics');
+    
     }
     public function logout(){
         Auth::guard('admin')->logout ();
