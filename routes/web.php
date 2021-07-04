@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ListingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,5 +57,6 @@ Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.log
 
 Route::middleware(['admin'])->group(function () {
     Route::get('/admin/statics', [AdminController::class, 'statics'])->name('admin.statics');
+    Route::get('/admin/listing/{model}', [ListingController::class, 'index'])->name('listing.index');
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 });

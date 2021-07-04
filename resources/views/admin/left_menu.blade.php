@@ -23,14 +23,20 @@
               <div class="menu_section">
                 <h3>MENU</h3>
                 <ul class="nav side-menu">
-                  
+                                     
                    
                       <li><a href="index.html">POS bán hàng </a></li>
                       <li><a href="index2.html">Quản lí đơn hàng</a></li>
-                      <li><a href="index3.html">Quản lí sản phẩm</a></li>
+                      <li><a>Quản lí sản phẩm <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                          <li><a href="{{ route('listing.index' ,['model'=>'menu'])}}">Danh mục</a></li>
+                          <li><a href="{{ route('listing.index' ,['model'=>'product'])}}">Sản phẩm</a></li>
+                          <li><a href="{{ route('listing.index' ,['model'=>'inventory'])}}">Tồn kho</a></li>
+                        </ul>
+                      </li>
+
                       <li><a href="index.html">Quản lí khách hàng </a></li>
                       <li><a href="index2.html">Nhập kho</a></li>
-                      <li><a href="index3.html">Tồn kho</a></li> 
                       <li><a href="index.html">Doanh số</a></li>
                       <li><a href="index2.html">Lợi nhuận</a></li>
                       <li><a href="index3.html">Thiết lập</a></li>               
