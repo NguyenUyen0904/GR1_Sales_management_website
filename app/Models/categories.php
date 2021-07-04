@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Base;
 
-class Product extends Base
+class categories extends Base
 {
     use HasFactory;
     public function listingConfigs(){
@@ -19,18 +19,8 @@ class Product extends Base
             ),
             array(
                 'field'=>'name',
-                'name'=>'Tên sản phẩm',
+                'name'=>'Tên danh muc',
                 'type'=>'text'
-            ),
-            array(
-                'field'=>'image',
-                'name'=>'Ảnh sản phẩm ',
-                'type'=>'image'
-            ),
-            array(
-                'field'=>'price',
-                'name'=>'Gía sản phẩm',
-                'type'=>'number'
             )
             
 

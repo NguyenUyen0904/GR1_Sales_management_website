@@ -47,21 +47,42 @@
                     <table class="table table-bordered">
                       <thead>
                         <tr>
-                          <th>ID</th>
-                          <th>Name</th>
-                          <th>Image</th>
-                          <th>Price</th>
-                         
+                            <?php foreach($configs as $config){?>
+                            
+                                <th><?= $config['name']?></th>
+                                <?php }?>
+                           
                         </tr>
                       </thead>
                       <tbody>
                         <?php foreach ($records as $record){
                             ?>
                             <tr>
-                          <th scope="row"><?=$record->id?></th>
-                          <td><?=$record->name?></td>
-                          <td><img src="<?=$record->id?>"/></td>
-                          <td><?=$record->price?></td>
+                                <?php foreach($configs as $config){ ?>
+                                <?php switch($config['type']) {
+                                    case "text":
+                                    ?>
+                                    <td><?=$record[$config['field']]?></td>
+                                    <?php
+                                    break;
+                                    case "image":?>
+                                    <td><img src"<?=$record[$config['field']]?>"/> </td>
+                                    <?php break;
+                                    case "number": ?>
+                                    <td><?=number_format($record[$config['field']],0,'.',',')?></td>
+                                    <?php
+                                    break;
+                                    case "edit":?>
+                                    <td><a href ="#">Edit</a> </td>
+                                    <?php break;
+                                    case "delete":?>
+                                    <td><a href ="#">Delete</a> </td>
+                                    <?php break;
+
+                                }
+                                ?>
+                                   
+                            <?php } ?>              
                         </tr>
                         <?php
                         }?>
