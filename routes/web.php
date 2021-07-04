@@ -53,4 +53,8 @@ Route::get('/admin/login', function(){
 });
 Route::post('/admin/login', [AdminController::class, 'loginPost'])->name('admin.loginPost');
 Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
-Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+
+Route::middleware(['admin'])->group(function () {
+    Route::get('/admin/statics', [AdminController::class, 'statics'])->name('admin.statics');
+    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+});

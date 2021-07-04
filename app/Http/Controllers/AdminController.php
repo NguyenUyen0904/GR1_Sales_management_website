@@ -22,11 +22,12 @@ class AdminController extends Controller
         
     }
     public function dashboard(){
-        if(Auth::guard('admin')->check ()){
-            return view('admin.dashboard');
-        }else{
-            return redirect('/admin/login');
-        }
+        return view('admin.dashboard');
+    }
+    public function statics(){
+       
+            echo" Day la trang thong ke";
+                    
     }
     public function logout(){
         Auth::guard('admin')->logout ();
