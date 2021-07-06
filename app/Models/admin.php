@@ -37,7 +37,16 @@ class admin extends Model implements AuthenticatableContract
                 'field'=>'created_at',
                 'name'=>'Ngày tạo',
                 'type'=>'text'
-            )
+            ),
+            array(
+                'field'=>'admin_group_id',
+                'name'=>'Phân quyền',
+                'type'=>'number'
+            ),array(
+                'field'=>'store_id',
+                'name'=>'Cửa hàng',
+                'type'=>'number'
+            ),
 
             );
         

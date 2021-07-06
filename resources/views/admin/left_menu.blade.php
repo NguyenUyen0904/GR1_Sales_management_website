@@ -45,8 +45,17 @@
                       </li>
                       <li><a href="index.html">Doanh số</a></li>
                       <li><a href="index2.html">Lợi nhuận</a></li>
-                      <li><a href="{{ route('listing.index' ,['model'=>'admin'])}}">Quản lí người dùng</a></li>               
-                 
+                                   
+                      <li><a>Thiết lập thành viên <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                          <li><a href="{{ route('listing.index' ,['model'=>'admin'])}}">Thành viên </a></li>
+                          <li><a href="{{ route('listing.index' ,['model'=>'admin_group'])}}">Nhóm chức năng thanh viên</a></li>
+                          
+                        </ul>
+                      </li>
+                       {{--  <?php if ($admin->admin_group_id==1) : ?>
+                          <li id="import"><a href="import"><i class="fa fa-truck"></i><b>Nhập kho</b></a></li>
+                       <?php endif; ?>  --}}
                 </ul>
               </div>
               

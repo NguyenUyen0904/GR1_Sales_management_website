@@ -5,12 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class customer extends Model
+class store extends Model
 {
     use HasFactory;
     public function listingConfigs(){
-        $defaultListingConfigs=parent::defaultListingConfigs();
-        $listingConfigs=array(
+        return array(
             array(
                 'field'=>'id',
                 'name'=>'ID',
@@ -18,24 +17,11 @@ class customer extends Model
             ),
             array(
                 'field'=>'name',
-                'name'=>'Tên sản phẩm',
+                'name'=>'Tên nhóm chức năng',
                 'type'=>'text'
             ),
+                       
             array(
-                'field'=>'email',
-                'name'=>'Email',
-                'type'=>'text'
-            ),
-            array(
-                'field'=>'phone',
-                'name'=>'Số điện thoại',
-                'type'=>'text'
-            ),
-            array(
-                'field'=>'address',
-                'name'=>'Địa chỉ',
-                'type'=>'text'
-            ),array(
                 'field'=>'updated_at',
                 'name'=>'Ngày cập nhật',
                 'type'=>'text'
@@ -45,10 +31,7 @@ class customer extends Model
                 'name'=>'Ngày tạo',
                 'type'=>'text'
             )
-            
 
             );
-            return array_merge($listingConfigs,$defaultListingConfigs);
-        
-    }
+        }
 }

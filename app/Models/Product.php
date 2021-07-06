@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Base;
 
-class Product extends Base
+class product extends Base
 {
     use HasFactory;
     public function listingConfigs(){
