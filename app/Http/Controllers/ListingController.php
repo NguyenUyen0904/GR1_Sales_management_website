@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Models;
+use Illuminate\Support\Facades\Cookie;
+
 
 class ListingController extends Controller
 {
@@ -13,7 +15,8 @@ class ListingController extends Controller
         $model='\App\Models\\' . ucfirst($modelName);
         $model=new $model;
         $configs=$model->listingConfigs();
-        $conditions=$model->getFilter($request,$configs);
+        $conditions=$model->getFilter($request,$configs,$modelName);
+       
         $records=$model->getRecords($conditions);
              
         
