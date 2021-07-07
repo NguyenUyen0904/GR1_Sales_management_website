@@ -2,7 +2,8 @@
 @section('content');
     <div class="">
         <div class="page-title">
-            <form calss="filter-form" action="#" method="POST">
+            <form calss="filter-form" action="{{route('listing.index',['model'=>$modelName])}}" method="POST">
+                @csrf
                 <fieldset>
                     <legend>Tìm kiếm:</legend>
                     <?php

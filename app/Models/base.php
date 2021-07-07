@@ -8,6 +8,58 @@ use Illuminate\Database\Eloquent\Model;
 class base extends Model
 {
     use HasFactory;
+    public function getRecords($conditions){
+        return self::where($conditions)->paginate(1);  
+    }
+    public function getFilter($request,$configs){
+        $conditions=[];
+        if($request->method()=="POST"){
+            foreach($configs as $config){
+                if(!empty($config['filter'])){
+                    $value=$request->input($config['field']);
+                    switch($config['filter']){
+                       
+                            case "equal":
+                                if(!empty($value)){
+                                $conditions[]=[
+                                    'field'=>$config['field'],
+                                    'condition'=>'=',
+                                    'value'=>$value
+                                ];}
+
+                                break;
+                                case "like":
+                                    if(!empty($value)){
+                                    $conditions[]=[
+                                        'field'=>$config['field'],
+                                        'condition'=>'like',
+                                        'value'=>'%'.$value.'%'
+                                    ];}
+                                    break;
+                                    case "between":
+                                        if(!empty($value['from'])){
+                                            $conditions[]=[
+                                                'field'=>'price',
+                                                'condition'=>'>=',
+                                                'value'=>$value['from']
+                                            ];
+                                        }
+                                        if(!empty($value['to'])){
+                                            $conditions[]=[
+                                                'field'=>'price',
+                                                'condition'=>'<=',
+                                                'value'=>$value['to']
+                                            ];
+                                        }
+                                        
+                                        break;
+                        
+                    }
+                }
+            }
+        }
+        return $conditions;
+    }
     public function defaultListingConfigs(){
         return array(
             
