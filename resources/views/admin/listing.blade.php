@@ -13,14 +13,14 @@
                                 case "equal":?>
                                 <div class="filter-item">
                                     <label><?= $config['name'] ?></label>
-                                    <input type="text" name="<?=$config['field']?>" value="" />
+                                    <input type="text" name="<?=$config['field']?>" value="<?=(!empty($config['filter_value']))?$config['filter_value']:""?>" />
                                  </div>
                                 <?php
                                 break;
                                  case "like":?>
                                 <div class="filter-item">
                                     <label><?= $config['name'] ?></label>
-                                    <input type="text" name="<?=$config['field']?>" value="" />
+                                    <input type="text" name="<?=$config['field']?>" value="<?=(!empty($config['filter_value']))?$config['filter_value']:""?>" />
                                  </div>
                                 <?php
                                 break;

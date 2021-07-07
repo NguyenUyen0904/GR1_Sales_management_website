@@ -15,15 +15,15 @@ class ListingController extends Controller
         $model='\App\Models\\' . ucfirst($modelName);
         $model=new $model;
         $configs=$model->listingConfigs();
-        $conditions=$model->getFilter($request,$configs,$modelName);
+        $filterReult=$model->getFilter($request,$configs,$modelName);
        
-        $records=$model->getRecords($conditions);
+        $records=$model->getRecords($filterReult['conditions']);
              
         
         return view('admin.listing',[
             'user'=>$adminUser,
             'records'=>$records,
-            'configs'=>$configs,
+            'configs'=>$filterReult['configs'],
             'modelName'=>$modelName,
             
             ]

@@ -9,24 +9,25 @@ use App\Models\Base;
 class categories extends Base
 {
     use HasFactory;
-    
     public function listingConfigs(){
         $defaultListingConfigs=parent::defaultListingConfigs();
         $listingConfigs=array(
             array(
                 'field'=>'id',
                 'name'=>'ID',
-                'type'=>'text'
+                'type'=>'text',
+                'filter'=>'equal'
             ),
             array(
                 'field'=>'name',
-                'name'=>'Tên danh muc',
-                'type'=>'text'
+                'name'=>'Tên danh mục',
+                'type'=>'text',
+                'filter'=>'like'
             )
             
-
             );
             return array_merge($listingConfigs,$defaultListingConfigs);
+        
         
     }
 }

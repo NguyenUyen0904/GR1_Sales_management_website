@@ -39,7 +39,7 @@ class base extends Model
                                         'value'=>'%'.$value.'%'
                                     ];}
                                     break;
-                                case "between":
+                                case "between":// case này đang bị lỗi . Sẽ sửa sau
                                         if(!empty($value['from'])){
                                             $conditions[]=[
                                                 'field'=>$config['field'],
@@ -66,13 +66,32 @@ class base extends Model
         }
         else{//method GET
                 $conditions=json_decode(Cookie::get(strtolower($modelName).'_filter',true));
-                foreach($conditions as & $condition){
-                    $condition= (array) $condition;
+                if(!empty($conditions)){
+                    foreach($conditions as &$condition){
+                        $condition= (array) $condition;
+                        foreach($configs as &$config){
+                            if($config['field']==$condition['field']){
+                                switch  ($config['filter']){
+                                    case "equal":
+                                        $config['filter_value']=$condition['value'];
+                                        break;
+                                    case "like":
+                                            $config['filter_value']=str_replace("%","",$condition['value']); 
+                                            break;   
+                                    
+                                }
+    
+                            }
+                        }
+                    } 
                 }
-                
-            
+         
         }
-        return $conditions;
+        return array(
+            'conditions'=>$conditions,
+            'configs'=>$configs,
+
+        );
     }
     public function defaultListingConfigs(){
         return array(

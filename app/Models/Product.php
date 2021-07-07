@@ -34,7 +34,7 @@ class product extends Base
                 'field'=>'price',
                 'name'=>'Gía sản phẩm',
                 'type'=>'number',
-                'filter'=>'between'
+                //'filter'=>'between'
             )
             );
             return array_merge($listingConfigs,$defaultListingConfigs);
