@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class store extends Model
 {
     use HasFactory;
+    public $title="cửa hàng ";
     public function listingConfigs(){
         return array(
             array(

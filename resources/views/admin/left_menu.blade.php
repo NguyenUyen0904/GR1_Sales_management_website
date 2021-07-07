@@ -46,11 +46,11 @@
                       <li><a href="index.html">Doanh số</a></li>
                       <li><a href="index2.html">Lợi nhuận</a></li>
                                    
-                      <li><a>Thiết lập thành viên <span class="fa fa-chevron-down"></span></a>
+                      <li><a>Thiết lập  <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                           <li><a href="{{ route('listing.index' ,['model'=>'admin'])}}">Thành viên </a></li>
-                          <li><a href="{{ route('listing.index' ,['model'=>'admin_group'])}}">Nhóm chức năng thanh viên</a></li>
-                          
+                          <li><a href="{{ route('listing.index' ,['model'=>'admin_group'])}}">Nhóm thành viên</a></li>
+                          <li><a href="{{ route('listing.index' ,['model'=>'store'])}}">Cửa hàng</a></li>
                         </ul>
                       </li>
                        {{--  <?php if ($admin->admin_group_id==1) : ?>

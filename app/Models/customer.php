@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class customer extends Model
 {
     use HasFactory;
+    public $title="khách hàng";
     public function listingConfigs(){
         $defaultListingConfigs=parent::defaultListingConfigs();
         $listingConfigs=array(
@@ -35,7 +36,13 @@ class customer extends Model
                 'field'=>'address',
                 'name'=>'Địa chỉ',
                 'type'=>'text'
-            ),array(
+            ),
+            array(
+                'field'=>'note',
+                'name'=>'Ghi chus',
+                'type'=>'text'
+            ),
+            array(
                 'field'=>'updated_at',
                 'name'=>'Ngày cập nhật',
                 'type'=>'text'

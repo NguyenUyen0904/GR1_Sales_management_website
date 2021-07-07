@@ -9,6 +9,7 @@ use App\Models\Base;
 class categories extends Base
 {
     use HasFactory;
+    public $title="loại sản phẩm";
     public function listingConfigs(){
         $defaultListingConfigs=parent::defaultListingConfigs();
         $listingConfigs=array(

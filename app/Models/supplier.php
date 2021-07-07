@@ -9,6 +9,7 @@ use App\Models\Base;
 class Product extends Base
 {
     use HasFactory;
+    public $title=" Nhà cung cấp";
     public function listingConfigs(){
         $defaultListingConfigs=parent::defaultListingConfigs();
         $listingConfigs=array(
@@ -23,14 +24,28 @@ class Product extends Base
                 'type'=>'text'
             ),
             array(
-                'field'=>'image',
-                'name'=>'Ảnh sản phẩm ',
-                'type'=>'image'
+                'field'=>'email',
+                'name'=>'Email',
+                'type'=>'text'
             ),
             array(
-                'field'=>'price',
-                'name'=>'Gía sản phẩm',
-                'type'=>'number'
+                'field'=>'phone',
+                'name'=>'Số điện thoại',
+                'type'=>'text'
+            ),
+            array(
+                'field'=>'address',
+                'name'=>'Địa chỉ',
+                'type'=>'text'
+            ),array(
+                'field'=>'updated_at',
+                'name'=>'Ngày cập nhật',
+                'type'=>'text'
+            ),
+            array(
+                'field'=>'created_at',
+                'name'=>'Ngày tạo',
+                'type'=>'text'
             )
             
 
