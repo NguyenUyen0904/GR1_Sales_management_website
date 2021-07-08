@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ListingController;
-
+use App\Http\Controllers\EditingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,4 +60,5 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/admin/listing/{model}', [ListingController::class, 'index'])->name('listing.index');
     Route::post('/admin/listing/{model}', [ListingController::class, 'index'])->name('listing.index');
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/admin/editing/{model}', [EditingController::class, 'create'])->name('editing.create');
 });
